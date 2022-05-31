@@ -4,10 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int addressId;
@@ -17,6 +19,7 @@ public class Address {
 	private String country;
 	private int pincode;
 	@OneToOne
+	@JoinColumn
 	private Branch branch;
 	
 	public int getAddressId() {
@@ -60,5 +63,10 @@ public class Address {
 	}
 	public void setBranch(Branch branch) {
 		this.branch = branch;
+	}
+	@Override
+	public String toString() {
+		return "Address [addressId=" + addressId + ", street=" + street + ", city=" + city + ", state=" + state
+				+ ", country=" + country + ", pincode=" + pincode + "]";
 	}
 }

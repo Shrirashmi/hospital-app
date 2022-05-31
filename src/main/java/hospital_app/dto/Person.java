@@ -2,6 +2,7 @@ package hospital_app.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,8 @@ public class Person {
 	private long phone;
 	private String dob;
 	private String bloodGroup;
-	@OneToMany
+	
+	@OneToMany(mappedBy = "person", cascade = CascadeType.REMOVE)
 	private List<Encounter> encounters;
 	
 	public int getPersonId() {
@@ -70,4 +72,10 @@ public class Person {
 	public void setEncounters(List<Encounter> encounters) {
 		this.encounters = encounters;
 	}
+	@Override
+	public String toString() {
+		return "Person [personId=" + personId + ", name=" + name + ", age=" + age + ", email=" + email + ", phone="
+				+ phone + ", dob=" + dob + ", bloodGroup=" + bloodGroup + "]";
+	}
+	
 }
