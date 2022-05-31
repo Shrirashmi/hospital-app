@@ -2,30 +2,33 @@ package hospital_app.service;
 
 import java.util.List;
 
+import hospital_app.dao.BranchDaoImpl;
 import hospital_app.dto.Branch;
 
 public class BranchService {
+	BranchDaoImpl dao = new BranchDaoImpl();
+
 	public Branch saveBranch(Branch branch, int hospitalId) {
-		return null;
+		return dao.saveBranch(branch, hospitalId);
 	}
 
 	public Branch getBranchById(int branchId) {
-		return null;
+		return dao.getBranchById(branchId);
 	}
 
 	public Branch getBranchByName(String name) {
-		return null;
+		return dao.getBranchByName(name);
 	}
 
 	public Branch updateBranchById(int branchId, Branch branch) {
-		return null;
+		return dao.updateBranchById(branchId, branch);
 	}
 
 	public boolean deleteBranchById(int branchId) {
-		return false;
+		return dao.deleteBranchById(branchId);
 	}
 
 	public List<Branch> getAllBranchesByHospitalId(int hospitalId) {
-		return null;
+		return dao.getAllBranchesByHospitalId(hospitalId);
 	}
 }

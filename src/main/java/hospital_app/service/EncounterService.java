@@ -2,31 +2,33 @@ package hospital_app.service;
 
 import java.util.List;
 
+import hospital_app.dao.EncounterDaoImpl;
 import hospital_app.dao.EncounterInterfaceDao;
+import hospital_app.dto.Encounter;
 
 public class EncounterService {
-	public EncounterInterfaceDao saveEncounter(int branchId, int personId, EncounterInterfaceDao encounter) {
-		return null;
+	EncounterDaoImpl dao = new EncounterDaoImpl();
+	public Encounter saveEncounter(int branchId, int personId, Encounter encounter) {
+		return dao.saveEncounter(branchId, personId, encounter);
 	}
 
-	public EncounterInterfaceDao getEncounterById(int branchId, int personId, int encounterId) {
-		return null;
+	public Encounter getEncounterById(int encounterId) {
+		return dao.getEncounterById(encounterId);
 	}
 
-	public boolean deleteEncounterById(int branchId, int personId, int encounterId) {
-		return false;
+	public boolean deleteEncounterById(int encounterId) {
+		return dao.deleteEncounterById(encounterId);
 	}
 
-	public List<EncounterInterfaceDao> getAllEncountersByIdPersonId(int personId) {
-		return null;
+	public List<Encounter> getAllEncountersByIdPersonId(int personId) {
+		return dao.getAllEncountersByIdPersonId(personId);
 	}
 
-	public List<EncounterInterfaceDao> getAllEncounterByBranchId(int branchId) {
-		return null;
+	public List<Encounter> getAllEncounterByBranchId(int branchId) {
+		return dao.getAllEncounterByBranchId(branchId);
 	}
 
-	public EncounterInterfaceDao updateEncounterById(int branchId, int personId, int encounterId,
-			EncounterInterfaceDao encounter) {
-		return null;
+	public Encounter updateEncounterById(int encounterId, Encounter encounter) {
+		return dao.updateEncounterById(encounterId, encounter);
 	}
 }

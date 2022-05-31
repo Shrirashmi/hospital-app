@@ -2,11 +2,13 @@ package hospital_app.service;
 
 import java.util.List;
 
+import hospital_app.dao.UserDaoImpl;
 import hospital_app.dto.User;
 
 public class UserService {
 	public User saveUser(User user) {
-		return null;
+		UserDaoImpl dao = new UserDaoImpl();
+		return dao.saveUser(user);
 	}
 
 	public User getUserById(int userId) {
